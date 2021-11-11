@@ -4,28 +4,30 @@ class Modal extends User {
 		//=====            Properties                 =====
 		//=================================================
 		super(user, index);
+		this.parent = document.getElementById("gallery");
+		this.parentLength = this.parent.children.length;
 		//=================================================
 
 		//=================================================
 		//=====           Div initiation              =====
 		//=================================================
 		this.div = document.createElement("div");
-		this.div.className = "modal-container";
+		this.div.classList.add("modal-container", "disable-clicks")
 		this.div.insertAdjacentHTML("beforeend", this.html);
-		//=================================================
-
-		//=================================================
-		//=====           Parent Appendation          =====
-		//=================================================
-		this.parent = document.getElementById("gallery");
 		this.parent.insertAdjacentElement("afterend", this.div);
-		this.parentLength = this.parent.children.length;
+		this.parent.classList.add('disable-clicks')
 		//=================================================
-
+		
 		//=================================================
 		//=====            Event Listener             =====
 		//=================================================
-		this.btn.addEventListener("click", this.removeModal);
+
+		function eventCB() {
+			this.div.classList.remove('disable-clicks')
+			this.div.removeEventListener("animationend", eventCB);
+		}
+		this.div.addEventListener("animationend", eventCB)
+		this.btn.addEventListener("click", ()=> this.removeModal());
 		this.prev.addEventListener("click", this.prevModal);
 		this.next.addEventListener("click", this.nextModal);
 		//=================================================
@@ -85,22 +87,25 @@ class Modal extends User {
         `;
 	}
 
-	removeModal = () => {
-		document.querySelector(".modal-container").remove();
+	removeModal = (direction='close') => {
+		const modal = document.querySelector(".modal-container");
+		modal.addEventListener("animationend", modal.remove)
+		this.parent.classList.remove('disable-clicks')
+		modal.classList.add(direction);
 	};
 	/**
 	 * Clears the current modal then emulates a click to create the next modal.
 	 */
 	prevModal = () => {
 		if (this.index > 0) {
-			this.removeModal();
+			this.removeModal('right');
 			this.parent.children[this.index - 1].click();
 		}
 	};
 
 	nextModal = () => {
 		if (this.index < this.parentLength - 1) {
-			this.removeModal();
+			this.removeModal('left');
 			this.parent.children[this.index + 1].click();
 		}
 	};

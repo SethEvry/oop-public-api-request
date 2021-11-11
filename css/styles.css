@@ -60,6 +60,9 @@ header h1 {
     border: 1px solid rgba(50, 50, 50, 0.9);
 }
 
+.disable-clicks {
+    pointer-events: none;
+}
 
 /* ===================================== 
    Gallery
@@ -137,6 +140,47 @@ header h1 {
     background: rgba(0, 0, 0, 0.7);
 }
 
+/* ===================================== 
+   Modal Animations!
+======================================== */
+.modal-container {
+    animation: fadein 1s;
+}
+@keyframes fadein {
+    from    { opacity: 0; }
+    to      { opacity: 1; }  
+}
+.modal-container.close {
+    pointer-events: none;
+    animation: fadeout .5s;
+}
+@keyframes fadeout {
+    from    { opacity: 1; }
+    to      { opacity: 0; }  
+}
+.modal-container.right {
+    pointer-events: none;
+    background: transparent;
+}
+.modal-container.right > * {
+    animation: swiperight .5s;
+}
+@keyframes swiperight {
+    from    { transform: translateX(0vw); }
+    to      { transform: translateX(100vw); }  
+}
+.modal-container.left {
+    pointer-events: none;
+    background: transparent;
+}
+.modal-container.left > * {
+    animation: swipeleft .5s;
+}
+@keyframes swipeleft {
+    from    { transform: translateX(0vw); }
+    to      { transform: translateX(-100vw); }  
+}
+/* ===================================== */
 .modal {
     position: relative;
     width: 95%;
