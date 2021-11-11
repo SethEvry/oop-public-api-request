@@ -16,8 +16,8 @@ inset shadow for the cards
 
 a vignette on the modal
 
-the prev/next buttons disable* at the ends of the list
-*text becomes transparent and changes cursor when hovered
+the prev/next buttons disable at the ends of the list
+text becomes transparent and changes cursor when hovered
 
 the buttons don't appear when there's 1 or fewer users in the list
 
