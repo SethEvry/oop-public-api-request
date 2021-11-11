@@ -1,5 +1,5 @@
 class User {
-	constructor(user) {
+	constructor(user, index) {
 		this.first = user.name.first;
 		this.last = user.name.last;
 		this.email = user.email;
@@ -10,5 +10,6 @@ class User {
 		this.birthday = user.dob.date;
 		this.postcode = user.location.postcode;
 		this.street = `${user.location.street.number} ${user.location.street.name}`;
+		this.index = index
 	}
 }

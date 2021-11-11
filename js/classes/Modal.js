@@ -3,8 +3,7 @@ class Modal extends User {
 		//=================================================
 		//=====            Properties                 =====
 		//=================================================
-		super(user);
-		this.index = index;
+		super(user, index);
 		//=================================================
 
 		//=================================================
@@ -19,7 +18,7 @@ class Modal extends User {
 		//=====           Parent Appendation          =====
 		//=================================================
 		this.parent = document.getElementById("gallery");
-		this.parent.insertAdjacentElement("beforebegin", this.div);
+		this.parent.insertAdjacentElement("afterend", this.div);
 		this.parentLength = this.parent.children.length;
 		//=================================================
 
