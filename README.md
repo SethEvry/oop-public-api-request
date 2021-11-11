@@ -4,11 +4,12 @@ Treehouse project 5
 
 populates a page of users retrieved from https://randomuser.me/
 
+## Improved Functionality
 has searchbar functionality
 
 has the functionality to switch between users withing the modal
 
-improved aesthetics:
+## Improved Aesthetics
 
 a border and background for the gallery
 
