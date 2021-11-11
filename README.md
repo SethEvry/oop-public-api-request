@@ -9,7 +9,7 @@ has searchbar functionality
 
 has the functionality to switch between users withing the modal
 
-##Improved Aesthetics
+## Improved Aesthetics
 
 a border and background for the gallery
 
