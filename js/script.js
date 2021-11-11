@@ -7,4 +7,4 @@ const data = fetch(DEFAULT_URL).then((res) => res.json());
 data.then((data) => {
 	new Gallery(data.results);
 	new Search(data.results);
-});
+}).catch(err => console.log("Error: ", err));
