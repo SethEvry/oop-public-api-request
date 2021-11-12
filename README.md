@@ -1,4 +1,4 @@
-# oop-public-api-request
+# public-api-request
 
 Treehouse project 5
 
